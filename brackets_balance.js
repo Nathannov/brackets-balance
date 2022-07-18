@@ -1,7 +1,6 @@
-const TEST_VALUES = 'ad(ad{fa[df(f)fdf]df}fdf)';
-
 const TYPE_OPEN_CHARACTERS_ALLOWED = ['{', '[', '('];
 const TYPE_CLOSED_CHARACTERS_ALLOWED = ['}', ']', ')'];
+
 let closedCharactersSaver = [];
 let openCharactersSaver = [];
 let temporalClosedSaver = [];
@@ -12,9 +11,6 @@ function doBracketsBalance(str = '') {
         const value = str[i];
         validateOpenBracket(value);
     }
-
-    // console.log(openCharactersSaver)
-    // console.log(closedCharactersSaver)
 
     if (openCharactersSaver.length === closedCharactersSaver.length) {
         cleanValues();
@@ -67,6 +63,6 @@ function saveIfClosedCharacter(value) {
     }
 }
 
-console.log(doBracketsBalance(TEST_VALUES));
+console.log(doBracketsBalance('ad(ad{fa[df(f)fdf]df}fdf)'));
 console.log(doBracketsBalance("function test ([a,b,c])=>[] ( )}"));
 console.log(doBracketsBalance("function test ([a,b,c])=>{ ( )}"));
