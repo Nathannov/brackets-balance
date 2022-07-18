@@ -13,10 +13,22 @@ function doBracketsBalance(str = '') {
         validateOpenBracket(value);
     }
 
+    // console.log(openCharactersSaver)
+    // console.log(closedCharactersSaver)
+
     if (openCharactersSaver.length === closedCharactersSaver.length) {
+        cleanValues();
         return true;
     }
+
+    cleanValues();
     return false;
+}
+
+function cleanValues(){
+    closedCharactersSaver = [];
+    openCharactersSaver = [];
+    temporalClosedSaver = [];
 }
 
 function validateOpenBracket(value) {
@@ -37,7 +49,7 @@ function validateOpenBracket(value) {
             openCharactersSaver.push(value);
             temporalClosedSaver.push(TYPE_CLOSED_CHARACTERS_ALLOWED[index]);
         }
-        
+
     }
 }
 
@@ -56,3 +68,5 @@ function saveIfClosedCharacter(value) {
 }
 
 console.log(doBracketsBalance(TEST_VALUES));
+console.log(doBracketsBalance("function test ([a,b,c])=>[] ( )}"));
+console.log(doBracketsBalance("function test ([a,b,c])=>{ ( )}"));
