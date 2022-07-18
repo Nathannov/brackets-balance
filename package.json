@@ -1,0 +1,24 @@
+{
+  "name": "brackets-balance",
+  "version": "1.0.0",
+  "description": "bracket balance test",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nathannov/brackets-balance.git"
+  },
+  "keywords": [
+    "brackets",
+    "balance",
+    "test"
+  ],
+  "author": "Jonathan Valencia Navarro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nathannov/brackets-balance/issues"
+  },
+  "homepage": "https://github.com/Nathannov/brackets-balance#readme"
+}
