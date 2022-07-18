@@ -37,6 +37,7 @@ function validateOpenBracket(value) {
             openCharactersSaver.push(value);
             temporalClosedSaver.push(TYPE_CLOSED_CHARACTERS_ALLOWED[index]);
         }
+        
     }
 }
 
