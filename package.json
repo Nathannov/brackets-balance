@@ -4,7 +4,7 @@
   "description": "bracket balance test",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/Nathannov/brackets-balance/issues"
   },
-  "homepage": "https://github.com/Nathannov/brackets-balance#readme"
+  "homepage": "https://github.com/Nathannov/brackets-balance#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0"
+  }
 }

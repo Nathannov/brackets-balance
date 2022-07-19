@@ -36,7 +36,6 @@ function validateOpenBracket(value) {
             openCharactersSaver.push(value);
             temporalClosedSaver.push(TYPE_CLOSED_CHARACTERS_ALLOWED[index]);
         }
-
     }
 }
 
@@ -47,7 +46,7 @@ function cleanValues() {
 }
 
 function doBracketsBalance(str) {
-    if(!str) return false;
+    if (!str) return false;
 
     for (let i = 0; i < str.length; i++) {
         const value = str[i];
@@ -63,6 +62,4 @@ function doBracketsBalance(str) {
     return false;
 }
 
-console.log(doBracketsBalance('ad(ad{fa[df(f)fdf]df}fdf)'));
-console.log(doBracketsBalance("function test ([a,b,c])=>[] ( )}"));
-console.log(doBracketsBalance("function test ([a,b,c])=>{ ( )}"));
+export default doBracketsBalance;
