@@ -5,30 +5,21 @@ let closedCharactersSaver = [];
 let openCharactersSaver = [];
 let temporalClosedSaver = [];
 
-function doBracketsBalance(str = '') {
-
-    for (let i = 0; i < str.length; i++) {
-        const value = str[i];
-        validateOpenBracket(value);
+function saveIfClosedCharacter(value) {
+    const index = TYPE_CLOSED_CHARACTERS_ALLOWED.indexOf(value);
+    if (index > -1) {
+        closedCharactersSaver.push(value);
     }
-
-    if (openCharactersSaver.length === closedCharactersSaver.length) {
-        cleanValues();
-        return true;
-    }
-
-    cleanValues();
-    return false;
 }
 
-function cleanValues(){
-    closedCharactersSaver = [];
-    openCharactersSaver = [];
-    temporalClosedSaver = [];
+function validateClosedBracket(value, character) {
+    if (value === character) {
+        temporalClosedSaver.pop();
+    }
+    saveIfClosedCharacter(value);
 }
 
 function validateOpenBracket(value) {
-
     const arrLength = temporalClosedSaver.length;
     let foundValue = false;
 
@@ -49,18 +40,27 @@ function validateOpenBracket(value) {
     }
 }
 
-function validateClosedBracket(value, character) {
-    if (value === character) {
-        temporalClosedSaver.pop();
-    }
-    saveIfClosedCharacter(value);
+function cleanValues() {
+    closedCharactersSaver = [];
+    openCharactersSaver = [];
+    temporalClosedSaver = [];
 }
 
-function saveIfClosedCharacter(value) {
-    const index = TYPE_CLOSED_CHARACTERS_ALLOWED.indexOf(value);
-    if (index > -1) {
-        closedCharactersSaver.push(value);
+function doBracketsBalance(str) {
+    if(!str) return false;
+
+    for (let i = 0; i < str.length; i++) {
+        const value = str[i];
+        validateOpenBracket(value);
     }
+
+    if (openCharactersSaver.length === closedCharactersSaver.length) {
+        cleanValues();
+        return true;
+    }
+
+    cleanValues();
+    return false;
 }
 
 console.log(doBracketsBalance('ad(ad{fa[df(f)fdf]df}fdf)'));
